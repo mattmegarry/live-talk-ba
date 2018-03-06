@@ -26,7 +26,7 @@ mongoose.connect('mongodb://localhost/live-talk-db', {
 // Middlewares
 app.use(cors({
   credentials: true,
-  origin: ['http://localhost:4200']
+  origin: [process.env.CLIENT_URL]
 }));
 app.use(logger('dev'));
 // uncomment after placing your favicon in /public
