@@ -1,5 +1,6 @@
 'use strict';
 
+require('dotenv').config();
 const express = require('express');
 const path = require('path');
 // const favicon = require('serve-favicon');
@@ -18,7 +19,7 @@ const auth = require('./routes/auth');
 const app = express();
 
 // Connect to database
-mongoose.connect('mongodb://localhost/live-talk-db', {
+mongoose.connect(process.env.MONGODB_URI, {
   keepAlive: true,
   reconnectTries: Number.MAX_VALUE
 });
