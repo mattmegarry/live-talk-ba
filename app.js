@@ -12,8 +12,10 @@ const cors = require('cors');
 const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
 
-const index = require('./routes/index');
-const users = require('./routes/users');
+const index = require('./routes/index'); // Make this redirect to Dashboard probably
+// const dashboard = require('./routes/dashboard');
+// const paperstacks = require('./routes/paperstacks');
+// const extractions = require('./routes/extractions');
 const auth = require('./routes/auth');
 
 const app = express();
@@ -43,7 +45,7 @@ app.use(session({
     mongooseConnection: mongoose.connection,
     ttl: 24 * 60 * 60 // 1 day
   }),
-  secret: 'some-string',
+  secret: 'wooooLaaaa',
   resave: true,
   saveUninitialized: true,
   cookie: {
@@ -58,7 +60,9 @@ app.use((req, res, next) => {
 
 // Routes
 app.use('/', index);
-app.use('/users', users);
+// app.use('/dashboard', dashboard);
+// app.use('/paperstack', paperstacks);
+// app.use('/extractions', extractions);
 app.use('/auth', auth);
 
 // catch 404 and forward to error handler

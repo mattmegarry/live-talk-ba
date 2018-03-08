@@ -1,0 +1,3 @@
+
+// This is for viewing/creating/deleting/editing one collection, since listing collections
+// is the job of the dashboard...
